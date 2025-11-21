@@ -1,0 +1,5 @@
+train: data/yolo_dataset/images/train
+val: data/yolo_dataset/images/val
+
+nc: 1
+names: ["forgery"]
