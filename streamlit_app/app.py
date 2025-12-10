@@ -98,20 +98,21 @@ def run_verification(uploaded_file, source="Single"):
     det_path = os.path.join(tmp, f"det_{ts}.jpg")
     img.save(temp_path)
 
-    # -------- DETECTION FIX (.plot instead of .save) --------
+    # ---------------- DETECTOR ----------------
     det_out = detector(temp_path)[0]
     has_aadhar = det_out.boxes is not None and len(det_out.boxes) > 0
 
-    annotated = det_out.plot()              # 🔥 FIX
-    cv2.imwrite(det_path, annotated)        # 🔥 Save annotated image
+    annotated = det_out.plot()
+    cv2.imwrite(det_path, annotated)
 
-    # -------- CLASSIFICATION --------
-    cls = classifier(temp_path, verbose=False)[0]
-    p = cls.probs.data.cpu().numpy()
+    # ---------------- CLASSIFIER FIXED ----------------
+    img_np = np.array(img)                   # 🔥 key fix
+    cls_out = classifier(img_np, verbose=False)[0]   # 🔥 not file path
+    p = cls_out.probs.data.cpu().numpy()
     label = "REAL" if p[1] > p[0] else "FAKE"
     conf = float(max(p))
 
-    # -------- OCR only if REAL --------
+    # ---------------- OCR ----------------
     aadhaar = name = "N/A"
     if label == "REAL":
         try:
@@ -138,6 +139,7 @@ def run_verification(uploaded_file, source="Single"):
     }
 
     return record, det_path, img, label, has_aadhar, et, aadhaar, name
+
 
 # ==========================================================
 # 🔥 UI START
