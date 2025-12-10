@@ -1,9 +1,13 @@
-streamlit
-ultralytics
-opencv-python-headless
-easyocr
+streamlit==1.36.0
+ultralytics==8.0.196
+opencv-python-headless==4.8.1.78
+easyocr==1.7.1
 pillow
-numpy
+numpy==1.23.5
 pandas
 matplotlib
+torch==2.1.0
+torchvision==0.16.0
+protobuf==3.20.3
+
 
