@@ -1,10 +1,9 @@
 streamlit
-pillow
-ultralytics==8.2.90
-opencv-python-headless==4.8.1.78
+ultralytics
+opencv-python-headless
 easyocr
-torch
-torchvision
-pandas
+pillow
 numpy
+pandas
 matplotlib
+
