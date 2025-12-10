@@ -1,8 +1,10 @@
 import os
+os.environ["ULTRALYTICS_HUB_ENABLED"] = "False"
+os.environ["ULTRALYTICS_CFG"] = "{\"hub\": {\"enabled\": False}}"
+
 import time
 from datetime import datetime
 import re
-
 import streamlit as st
 import pandas as pd
 from ultralytics import YOLO
@@ -11,6 +13,7 @@ import matplotlib.pyplot as plt
 import easyocr
 import cv2
 import numpy as np
+
 
 # ==========================================================
 # 🔧 PAGE CONFIG
