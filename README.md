@@ -74,6 +74,8 @@ QR-Code Extraction + UID Verification	UID Validation Against DB
 Mobile Upload + API Access	Government/Bank Integration
 Cloud Deployment on Azure/AWS	Scalable Real-World Rollout
 
+DEPLOYMENT LINK
+https://alocrproject-7ad34e4ojdveq6xhnw4fsx.streamlit.app/
 
 
 ⭐ Contribution
